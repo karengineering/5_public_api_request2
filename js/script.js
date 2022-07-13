@@ -1,6 +1,5 @@
 
 //URL uses same seed and page number (1 based index) in order to get back the same results
-// let url = 'https://randomuer.me/api/?format=json&page=3&results=12&seed=abc&nat=us';
 let url = 'https://randomuser.me/api/?format=json&page=3&results=12&seed=abc&nat=us';
 let users = [];
 const gallery = document.getElementById('gallery');
@@ -61,18 +60,9 @@ function generateUsers(data) {
     });
 
     gallery.insertAdjacentHTML("beforeend", usersHTML);
-
-    // let cards = document.querySelectorAll('#card');
-    // [...cards].forEach(card => {
-    //     card.addEventListener('click', e => {
-    //         data-index="${i}
-    //     })
-    // })
 }
 
 function generateModal(idx) {
-
-    // console.log(users[idx]);
     let user = users[idx];
     let largePic = user.picture.large;
     let firstName = user.name.first;
@@ -102,41 +92,18 @@ function generateModal(idx) {
         </div>
     </div>
     `;  
-        // 123 Portland Ave., Portland, OR 97204
-        // 10/21/2015
 
     body.insertAdjacentHTML('beforeend', modalHTML);
 
     let closeBtn = document.getElementById('modal-close-btn');
-    // let modal = document.querySelector('.modal-container');
-
     closeBtn.addEventListener('click', e => {
-        // modal.style.display = "none";
         document.querySelector('.modal-container').remove(); //close modal
     });
 }
 
-//cell: "(576) 843-3163"
-
-//addy:
-//location.street: {number: 6057, name: 'Avondale Ave'}
-//location.city
-//location.state
-//location.postcode int
-
-
-//birthday: "1966-12-17T05:32:24.120Z"
-//dob.date
-
-
-
 // ------------------------------------------
 //  EVENT LISTENERS
 // ------------------------------------------
-// select.addEventListener('change', fetchBreedImage);
-// card.addEventListener('click', fetchBreedImage);
-// form.addEventListener('submit', postData);
-
 gallery.addEventListener('click', e => {
     let card = e.target.closest('.card');
     let idx = card.getAttribute('data-index');
