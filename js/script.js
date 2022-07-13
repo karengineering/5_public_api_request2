@@ -1,6 +1,8 @@
 
-//URL uses same seed and page number (1 based index) in order to get back the same results
-let url = 'https://randomuser.me/api/?format=json&page=3&results=12&seed=abc&nat=us';
+//this URL uses same seed and page number (1 based index) in order to get back the same results
+// let url = 'https://randomuser.me/api/?format=json&page=3&results=12&seed=abc&nat=us';
+
+let url = 'https://randomuser.me/api/?format=json&results=12&nat=us&noinfo';
 let users = [];
 const gallery = document.getElementById('gallery');
 const body = document.body;
