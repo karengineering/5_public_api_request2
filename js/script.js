@@ -74,7 +74,7 @@ function generateModal(idx) {
     let city = user.location.city;
     let state = user.location.state;
     let date = new Date(user.dob.date);
-    let month = date.getMonth().toString().padStart(2, '0'); //appends leading 0 to bday month if only 1 digit
+    let month = (date.getMonth() +1).toString().padStart(2, '0'); //appends leading 0 to bday month if only 1 digit
     let day = date.getDate().toString().padStart(2, '0'); 
 
     let modalHTML = `
@@ -107,9 +107,11 @@ function generateModal(idx) {
 //  EVENT LISTENERS
 // ------------------------------------------
 gallery.addEventListener('click', e => {
-    let card = e.target.closest('.card');
-    let idx = card.getAttribute('data-index');
-    generateModal(idx);
+    if (e.target !== gallery) {
+        let card = e.target.closest('.card');
+        let idx = card.getAttribute('data-index');
+        generateModal(idx);
+    }
 });
 
 
